@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelPulse — Live Image Search</title>
+  <meta name="description" content="Search thousands of artworks and images. Built with plain HTML, CSS, and JavaScript." />
+  <link rel="preconnect" href="https://commons.wikimedia.org" />
+  <link rel="preconnect" href="https://upload.wikimedia.org" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
-<script src="script.js"></script> 
-    
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <h1 class="brand-name">PixelPulse</h1>
+    </div>
+    <p class="tagline">Search thousands of artworks and images.</p>
+
+    <form id="search-form" class="search" role="search">
+      <label for="search-input" class="visually-hidden">Search for images</label>
+      <input
+        id="search-input"
+        name="query"
+        type="search"
+        class="search-input"
+        placeholder="Try: sunflowers, cats, ocean, Monet…"
+        autocomplete="off"
+      />
+      <button id="search-button" type="submit" class="search-button">Search</button>
+    </form>
+  </header>
+
+  <main class="container">
+    <!-- Status line: loading / error / empty messages appear here -->
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <!-- Results grid: JavaScript fills this with image cards -->
+    <section id="results" class="results" aria-label="Search results"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Images via <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>. Built with plain HTML, CSS &amp; JavaScript.</p>
+  </footer>
+
+  <script src="script.js?v=3"></script>
 </body>
 </html>
