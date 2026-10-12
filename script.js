@@ -14,10 +14,18 @@ function showData(user) {
     button.className = "like-button";
     button.addEventListener("click", function() {
         count++;
-        button.textContent = ` 👍${count}`;
+        if (count > 1000) {
+            const str = count.toString();
+            const formattedCount = str.slice(0, -3) + "K";
+            button.textContent = ` 👍${formattedCount}`;
+        }
+        
+        else {
+            button.textContent = ` 👍${count}`;
+        }
     });
     const container = document.getElementById("container");
-    container.style.cssText = "background-color: ; padding: 20px; border-radius: 10px; margin-bottom: 20px;";
+    container.style.cssText = "; padding: 20px; border-radius: 10px; margin-bottom: 20px;";
     const image = document.createElement("img");
     image.src = user[i].avatar;
     usercard.appendChild(image);
